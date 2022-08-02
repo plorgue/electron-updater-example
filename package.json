@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -22,7 +22,7 @@
     "publish": [{
         "provider": "github",
         "owner": "plorgue",
-        "repo": "https://github.com/plorgue/electron-updater-example"
+        "repo": "electron-updater-example"
     }],
     "mac": {
       "category": "your.app.category.type"
