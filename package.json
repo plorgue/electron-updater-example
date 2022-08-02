@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-example",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -17,8 +17,13 @@
     "electron-updater": "^4.3.9"
   },
   "build": {
-    "appId": "com.github.iffy.electronupdaterexample",
+    "appId": "com.github.plorgue.electronupdaterexample",
     "afterSign": "./build/notarize.js",
+    "publish": [{
+        "provider": "github",
+        "owner": "plorgue",
+        "repo": "https://github.com/plorgue/electron-updater-example"
+    }],
     "mac": {
       "category": "your.app.category.type"
     },
