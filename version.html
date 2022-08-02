@@ -12,9 +12,10 @@ let version = window.location.hash.substring(1);
 document.getElementById('version').innerText = version;
 
 // Listen for messages
-window.api.receive('message', function(event, text) {
+window.api.receive('message', function(text) {
   var container = document.getElementById('messages');
   var message = document.createElement('div');
+  console.warn(text);
   message.innerHTML = text;
   container.appendChild(message);
 })

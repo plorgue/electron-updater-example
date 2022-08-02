@@ -14,7 +14,6 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
-  log.info(__dirname);
   win = new BrowserWindow({
     // webPreferences: {
     //   nodeIntegration: true,
