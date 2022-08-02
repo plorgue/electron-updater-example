@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
+const path = require('path');
 
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
@@ -13,13 +14,14 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
+  log.info(__dirname);
   win = new BrowserWindow({
     // webPreferences: {
     //   nodeIntegration: true,
     //   contextIsolation: false
     // }
 		webPreferences: {
-			preload: `${__dirname}/preload.js`,
+			preload: path.join(__dirname,"preload.js"),
 			nodeIntegration: false,
 			contextIsolation: true,
 			webSecurity: true,
