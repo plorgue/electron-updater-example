@@ -19,7 +19,7 @@ function createDefaultWindow() {
     //   contextIsolation: false
     // }
 		webPreferences: {
-			preload: `file://${__dirname}/preload.js`,
+			preload: `${__dirname}/preload.js`,
 			nodeIntegration: false,
 			contextIsolation: true,
 			webSecurity: true,
