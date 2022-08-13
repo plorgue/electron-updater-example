@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, session} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
 const path = require('path');
@@ -14,6 +14,15 @@ function sendStatusToWindow(text) {
   win.webContents.send('message', text);
 }
 function createDefaultWindow() {
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+		callback({
+			responseHeaders: {
+				...details.responseHeaders,
+				"Content-Security-Policy": ["default-src 'unsafe-inline'"],
+			},
+		});
+	});
+
   win = new BrowserWindow({
     // webPreferences: {
     //   nodeIntegration: true,
